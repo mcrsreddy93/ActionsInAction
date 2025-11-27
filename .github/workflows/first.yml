@@ -1,0 +1,25 @@
+name: first
+
+on:
+    workflow_dispatch:
+        inputs:
+            username:
+                description: 'Username for login'
+                required: true
+                default: 'admin'
+                type: string
+            password:
+                description: 'Password for login'
+                required: true
+                default: 'password123'
+                type: string
+
+jobs:
+    FirstJob:
+        runs-on: ubuntu-latest
+        steps:
+            - run: echo "Hello World  from First Workflow"
+            - name: Display Inputs
+              run: |
+                echo "Username: ${{ github.event.inputs.username }}"
+                echo "Password: ${{ github.event.inputs.password }}"
