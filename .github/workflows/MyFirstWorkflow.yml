@@ -1,9 +1,6 @@
 name: My First Workflow
 
 on:
-  push:
-    branches:
-      - main
   workflow_dispatch:
     inputs:
       name:
@@ -29,6 +26,7 @@ on:
         options:
           - option1
           - option2
+          - option3
       
 
 jobs:
@@ -39,5 +37,7 @@ jobs:
     
       - name: Display Inputs
         run: |
-          echo "Username: ${{ github.event.inputs.username }}"
-          echo "Password: ${{ github.event.inputs.password }}"
+          echo "Name: ${{ github.event.inputs.name }}"
+          echo "Age: ${{ github.event.inputs.age }}"
+          echo "Is Married: ${{ github.event.inputs.ismarried }}"
+          echo "Selection: ${{ github.event.inputs.selection }}"
