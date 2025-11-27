@@ -6,16 +6,29 @@ on:
       - main
   workflow_dispatch:
     inputs:
-      username:
-        description: 'Enter your username'
+      name:
+        description: 'Your name'
         required: true
-        default: 'GitHubUser'
+        default: 'GitHub User'
         type: string
-      password:
-        description: 'Enter your password'
+      age:
+        description: 'Your age'
+        required: false
+        default: '25'
+        type: number
+      ismarried:
+        description: 'Are you married?'
+        required: false
+        default: true
+        type: boolean
+      selection:
+        description: 'Choose an option'
         required: true
-        default: 'password123'
-        type: string
+        default: 'option1'
+        type: choice
+        options:
+          - option1
+          - option2
       
 
 jobs:
