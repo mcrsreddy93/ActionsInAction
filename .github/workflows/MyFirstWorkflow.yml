@@ -5,6 +5,18 @@ on:
     branches:
       - main
   workflow_dispatch:
+    inputs:
+      username:
+        description: 'Enter your username'
+        required: true
+        default: 'GitHubUser'
+        type: string
+      password:
+        description: 'Enter your password'
+        required: true
+        default: 'password123'
+        type: string
+      
 
 jobs:
   MyFirstJob:
@@ -12,3 +24,7 @@ jobs:
     steps:
       - run: echo "Hello World Welcome to GitHub Actions"
     
+      - name: Display Inputs
+        run: |
+          echo "Username: ${{ github.event.inputs.username }}"
+          echo "Password: ${{ github.event.inputs.password }}"
